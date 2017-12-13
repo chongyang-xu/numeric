@@ -1,13 +1,13 @@
-#Source Code
-\-squarematrix.h
-|     |-densematrix.h
-|     |-bandmatrix.h
-|-matrix.h
-|-vectorutil.h
-|-numbertable.h
-|-polynomial.h
-|-eigensolver.h
-|-miscellaneous.h
+#Source Code  
+\-squarematrix.h  
+|     |-densematrix.h  
+|     |-bandmatrix.h  
+|-matrix.h  
+|-vectorutil.h  
+|-numbertable.h  
+|-polynomial.h  
+|-eigensolver.h  
+|-miscellaneous.h  
 
 #Unit Test
 \-testbandmatrix.cpp
