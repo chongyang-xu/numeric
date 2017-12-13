@@ -1,7 +1,7 @@
-#Source Code  
-\-squarematrix.h  
-|     |-densematrix.h  
-|     |-bandmatrix.h  
+## Source Code  
+|-squarematrix.h
+|----densematrix.h  
+|----bandmatrix.h  
 |-matrix.h  
 |-vectorutil.h  
 |-numbertable.h  
@@ -9,16 +9,16 @@
 |-eigensolver.h  
 |-miscellaneous.h  
 
-#Unit Test
-\-testbandmatrix.cpp
-|testdensematrix.cpp
-|testmatrix.cpp
-|testmiscellaneous.cpp
-|testnumtable.cpp
-|testpolynomial.cpp
-|testvectorutil.cpp
+## Unit Test  
+|-testbandmatrix.cpp  
+|-testdensematrix.cpp  
+|-testmatrix.cpp  
+|-testmiscellaneous.cpp  
+|-testnumtable.cpp  
+|-testpolynomial.cpp  
+|-testvectorutil.cpp  
 
-#Homeworks
-\-homework1.cpp
-|-homework2.cpp
-|-homework3.cpp
+## Homeworks
+|-homework1.cpp  
+|-homework2.cpp  
+|-homework3.cpp  
