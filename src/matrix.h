@@ -3,10 +3,11 @@
 #include"densematrix.h"
 namespace numeric {
 
+template<class T> class DenseMatrix;
 template<class T>
 class Matrix {
 public:
-	template<class T>  friend class DenseMatrix;
+	friend class DenseMatrix<T>;
 	Matrix(int line_, int col_):line(line_),col(col_) {
 		data = new T*[line_];
 		for (int i = 0; i<line_; i++) {

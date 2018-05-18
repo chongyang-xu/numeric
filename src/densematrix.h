@@ -1,7 +1,7 @@
 #ifndef NUMERIC_DENSE_MATRIX_H
 #define NUMERIC_DENSE_MATRIX_H
 #include"squarematrix.h"
-#include "vectorutil.h"
+#include"vectorutil.h"
 #include"matrix.h"
 #include<cstdio>
 #include<algorithm>
@@ -9,6 +9,7 @@
 namespace numeric {
 
 template<class T> class Matrix;
+template<class T> class VectorUtil;
 
 template<class T>
 class DenseMatrix : public SquareMatrix<T> {
@@ -106,7 +107,7 @@ public:
 		}
 	}
 
-	virtual  SquareMatrix* LUDecompose()  { 
+	virtual  SquareMatrix<T>* LUDecompose()  { 
 		DenseMatrix* mat = new DenseMatrix(*this);
 		for (int k = 0; k < mat->dim; k++) {//k=0,1,2,...,dim-1
 			double sigma;
@@ -137,8 +138,8 @@ public:
 		}
 		return mat;
 	}
-	virtual  SquareMatrix* QRDecompose()  { throw; }
-	virtual  SquareMatrix* QuasiUpperTriangularize()  { 
+	virtual  SquareMatrix<T>* QRDecompose()  { throw; }
+	virtual  SquareMatrix<T>* QuasiUpperTriangularize()  { 
 		DenseMatrix* quasi = new DenseMatrix(*this);
 		bool a_i_r_all_zero;
 		double d, c, h;

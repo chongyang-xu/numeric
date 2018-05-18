@@ -7,7 +7,7 @@
 
 void pivotGausselimination(numeric::SquareMatrix<double>* A, double ans[], double b[]);
 
-int homework2() {
+int main() {
 	numeric::DenseMatrix<double> A(10);
 
 	for (int i = 0; i < 10; i++) {

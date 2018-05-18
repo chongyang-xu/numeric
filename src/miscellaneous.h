@@ -97,44 +97,6 @@ bool NewtonMethodForNonLinearEquation(
 		
 */
 template<class T>
-double DualQuadraticPiecewiseInterpolation(NumberTableVar2<T>& num_table, T query_x, T query_y) {
-		
-	int index_i = getXIndex<T>(num_table, query_x);
-	int index_j = getYIndex<T>(num_table, query_y);
-	//printf("index-i,index_j = %d,%d\n", index_i, index_j);
-	double Lx[3];
-	double Ly[3];
-
-	for (int k = 0; k < 3; k++) {
-		Lx[k] = 1.0;
-		for (int i = index_i - 1; i <= index_i + 1; i++) {
-			if (i != (index_i - 1 + k)) {
-				Lx[k] = Lx[k] * (query_x - num_table.var1[i]) / (num_table.var1[index_i - 1 + k] - num_table.var1[i]);
-			}//lagrange interpolation base function
-		}
-	}
-
-	for (int k = 0; k < 3; k++) {
-		Ly[k] = 1.0;
-		for (int i = index_j - 1; i <= index_j + 1; i++) {
-			if (i != (index_j - 1 + k)) {
-				Ly[k] = Ly[k] * (query_y - num_table.var2[i]) / (num_table.var2[index_j - 1 + k] - num_table.var2[i]);
-			}
-		}
-	}
-	//for (int i = 0; i < 3; i++)printf("Lx[%d]=%lf ",i,Lx[i]); printf("\n");
-	// for (int i = 0; i < 3; i++)printf("Ly[%d]=%lf ",i, Ly[i]); printf("\n");
-
-	double res = 0.0;
-	for (int p = 0; p < 3; p++) {
-		for (int q = 0; q < 3; q++) {
-			res += Lx[p] * Ly[q] * num_table.value->get(index_i - 1 + p, index_j - 1 + q);
-		}
-	}
-	return res;
-
-}
-template<class T>
 int getXIndex(NumberTableVar2<T>& num_table, T query_x) {
 	int index_i = 0;//index_i-1,index_i,index_i+1 : 3 interpolation point for quer_x
 	double h_x = num_table.var1[1] - num_table.var1[0];
@@ -176,6 +138,44 @@ int getYIndex(NumberTableVar2<T>& num_table, T query_y) {
 	return index_j;
 }
 
+template<class T>
+double DualQuadraticPiecewiseInterpolation(NumberTableVar2<T>& num_table, T query_x, T query_y) {
+		
+	int index_i = getXIndex<T>(num_table, query_x);
+	int index_j = getYIndex<T>(num_table, query_y);
+	//printf("index-i,index_j = %d,%d\n", index_i, index_j);
+	double Lx[3];
+	double Ly[3];
+
+	for (int k = 0; k < 3; k++) {
+		Lx[k] = 1.0;
+		for (int i = index_i - 1; i <= index_i + 1; i++) {
+			if (i != (index_i - 1 + k)) {
+				Lx[k] = Lx[k] * (query_x - num_table.var1[i]) / (num_table.var1[index_i - 1 + k] - num_table.var1[i]);
+			}//lagrange interpolation base function
+		}
+	}
+
+	for (int k = 0; k < 3; k++) {
+		Ly[k] = 1.0;
+		for (int i = index_j - 1; i <= index_j + 1; i++) {
+			if (i != (index_j - 1 + k)) {
+				Ly[k] = Ly[k] * (query_y - num_table.var2[i]) / (num_table.var2[index_j - 1 + k] - num_table.var2[i]);
+			}
+		}
+	}
+	//for (int i = 0; i < 3; i++)printf("Lx[%d]=%lf ",i,Lx[i]); printf("\n");
+	// for (int i = 0; i < 3; i++)printf("Ly[%d]=%lf ",i, Ly[i]); printf("\n");
+
+	double res = 0.0;
+	for (int p = 0; p < 3; p++) {
+		for (int q = 0; q < 3; q++) {
+			res += Lx[p] * Ly[q] * num_table.value->get(index_i - 1 + p, index_j - 1 + q);
+		}
+	}
+	return res;
+
+}
 template<class T>
 void constructIndependentBase(Var1Polynomial<T>** bases, int base_order, T* point, int point_num) {
 	if (base_order > point_num) { throw; }

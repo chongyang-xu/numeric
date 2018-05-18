@@ -52,12 +52,12 @@ public:
 	}
 	virtual int getDim()   { return dim; }
 
-	virtual SquareMatrix* LUDecompose()  {
+	virtual SquareMatrix<T>* LUDecompose()  {
 		BandMatrix* mat =  DoolittleDecompose();
 		return mat;
 	}
-	virtual SquareMatrix* QRDecompose()  { throw; }
-	virtual SquareMatrix* QuasiUpperTriangularize()  { throw; }
+	virtual SquareMatrix<T>* QRDecompose()  { throw; }
+	virtual SquareMatrix<T>* QuasiUpperTriangularize()  { throw; }
 	virtual void solveEquation(T b[], T x[]) {
 		
 		if (decomposed_matrix == NULL) {
