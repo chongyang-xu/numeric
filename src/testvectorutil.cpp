@@ -2,7 +2,7 @@
 #include"squarematrix.h"
 using namespace numeric;
 
-int mainoo() {
+int main() {
 	double ans[3];
 	double y[3] = { 1. , 2., 3. };
 	double z[3] = { 3 , 2., 1. };

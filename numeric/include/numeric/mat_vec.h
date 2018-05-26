@@ -1,28 +1,37 @@
 #ifndef NUMERIC_MAT_VEC_H
 #define NUMERIC_MAT_VEC_H
+#include<memory>
+
 namespace numeric{
-using shared_ptr = std::shared_ptr
+
+using namespace std;
+
+template<typename T>
+class Vec;
+
 template<typename T>
 class Mat{
 public:
 	Mat(int m, int n);
+	explicit Mat(std::string filename);
 	~Mat();
 	
-	get_m();
-	get_n();
+	int get_m();
+	int get_n();
 
-	inline operator [][](int i, int j);
+	void operator [](int i);
 	
 	shared_ptr<Mat> Copy();
 	shared_ptr<Mat> Select(int m, int n, int beg=0, int end=0);
-
-	shared_ptr<Mat> Add(shared_ptr<Mat> b, shared_ptr<T> alpha=shared_ptr<T>());
-	shared_ptr<Mat> Sub(shared_ptr<Mat> b, shared_ptr<T> alpha=shared_ptr<T>());
-	shared_ptr<Mat> Mul(shared_ptr<Mat> b, shared_ptr<T> alpha=shared_ptr<T>(), bool trans=false);
+	
+	shared_ptr<Mat> Add(shared_ptr<Mat> b, shared_ptr<T> alpha);
+	shared_ptr<Mat> Sub(shared_ptr<Mat> b, shared_ptr<T> alpha);
+	shared_ptr<Mat> MulMat(shared_ptr<Mat> b, shared_ptr<T> alpha, bool trans);
 	//shared_ptr<Mat> MulAdd(shared_ptr<Mat> b, shared_ptr<T> p=shared_ptr<T>(), bool trans=false);
-	shared_ptr<Vec> Mul(shared_ptr<Vec> b, shared_ptr<T> alpha=shared_ptr<T>(), bool trans=false);
+	shared_ptr<Vec<T>> MulVec(shared_ptr<Vec<T>> b, shared_ptr<T> alpha, bool trans);
 	//shared_ptr<Vec> MulAdd(shared_ptr<Vec> b, shared_ptr<T> p=shared_ptr<T>(), bool trans=false);
 	
+	void SaveTo(std::string filename);
 
 private:
 	int m_;
@@ -52,24 +61,23 @@ public:
 	explicit Vec(int m);
 	~Vec();
 
-	get_m();
+	int get_m();
 
-	inline operator [](int i);
+	void operator [](int i);
 
 	shared_ptr<Vec> Copy();
 	void 	Scale(T alpha);
 	T	Norm2();
 	
 	T	Dot(shared_ptr<Vec> b);
-	shared_ptr<Mat> Out(shared_ptr<Vec> b);
-	shared_ptr<Vec>	Add(shared_ptr<Vec> b, shared_ptr<T> alpha=shared_ptr<T>());
- 	shared_ptr<Vec> Sub(shared_ptr<Vec> b, shared_ptr<T> alpha=shared_ptr<T>());	
+	shared_ptr<Mat<T>> Out(shared_ptr<Vec> b);
+	shared_ptr<Vec>	Add(shared_ptr<Vec> b, shared_ptr<T> alpha);
+ 	shared_ptr<Vec> Sub(shared_ptr<Vec> b, shared_ptr<T> alpha);	
  		
 private:
 	int m_;
 	T* data_;
 };
-
 
 }
 

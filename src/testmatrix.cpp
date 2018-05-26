@@ -3,7 +3,7 @@
 #include<iostream>
 using namespace numeric;
 using namespace std;
-int testmatrix() {
+int main() {
 	Matrix<double> mat(2,3);
 	mat.set(0,0,1); mat.set(0, 1, 2); mat.set(0, 2, 3);
 	mat.set(1, 0, 5); mat.set(1, 1, 6); mat.set(1, 2, 7);

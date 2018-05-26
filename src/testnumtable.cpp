@@ -4,7 +4,7 @@
 #include<iostream>
 using namespace numeric;
 using namespace std;
-int testnumtable() {
+int main() {
 	NumberTableVar2<double> table(2, 3);
 
 	table.var1[0] = 1; table.var1[1] = 2;

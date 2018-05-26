@@ -25,7 +25,7 @@ namespace blas{
 	//single
 	void sscal(int N, float SA, float* SX);//SX in out
 	void scopy(int N, float* SX, float* SY);//SY out
-	void saxpy(int N, float SA, float* SX float* SY);//SY in out
+	void saxpy(int N, float SA, float* SX, float* SY);//SY in out
 	float sdot(int N, float* SX, float* SY);
 	float snrm2(int N, float* X);
 	

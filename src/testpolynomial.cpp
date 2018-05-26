@@ -4,7 +4,7 @@
 #include<iostream>
 using namespace numeric;
 using namespace std;
-int testpolynomial() {
+int main() {
 	Var1Polynomial<double> poly1(2);
 	poly1.set(0, 1.0); poly1.set(1, 0.5);; poly1.set(2, 1.0);
 	poly1.print();

@@ -2,7 +2,7 @@
 #include"eigensolver.h"
 #include<iostream>
 using namespace std;
-int maintest() {
+int main() {
 	/*
 	A
 	4 1 0 0 0

@@ -15,7 +15,7 @@ double f3(double* val, int num) {
 	return 10 * sqrt(val[2]);
 }
 
-int testmiscellaneous() {
+int main() {
 	//DualQuadraticPiecewiseInterpolation
 	NumberTableVar2<double> table(4,4);
 	table.var1[0] = -1; table.var1[1] = 0; table.var1[2] = 1; table.var1[3] = 1.5;

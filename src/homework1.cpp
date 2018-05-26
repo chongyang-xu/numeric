@@ -2,7 +2,7 @@
 #include"eigensolver.h"
 #include<cstdio>
 
-int homework1() {
+int main() {
 	numeric::BandMatrix<double> A(501,2,2);
 	A.initializeForHomework(501, 2, 2);
 	double engineVector[501];

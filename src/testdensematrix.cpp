@@ -2,7 +2,7 @@
 #include"densematrix.h"
 #include<iostream>
 
-int maindfsd() {
+int main() {
 	numeric::SquareMatrix<double>* m = new numeric::DenseMatrix<double>(3);
 	double ans[5];
 	double y[5] = { 1. , 0, 0 ,0, 0};
