@@ -1,1 +1,0 @@
-http://www.lunderberg.com/2015/08/10/cpp-makefile-library/
