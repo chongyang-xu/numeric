@@ -66,27 +66,27 @@ typedef float aligned_float __attribute__((__aligned__(256)));
  *
  *  block : 16 col, 6 rows
  *
- *  |XXXXXXXX|XXXXXXXX|     |OOOOOOOOOOOOOOO|* |UUUUUUUU|UUUUUUUU|
- *  |XXXXXXXX|XXXXXXXX|     |OOOOOOOOOOOOOOO|  
+ *  |XXXXXXXX|XXXXXXXX|     |OOOOOOOO...OOOOOOO|* |UUUUUUUU|UUUUUUUU|
+ *  |XXXXXXXX|XXXXXXXX|     |OOOOOOOO...OOOOOOO|  
+                                                           .
+ *  |XXXXXXXX|XXXXXXXX| +=  |OOOOOOOO...OOOOOOO|           .
+ *  |XXXXXXXX|XXXXXXXX|     |OOOOOOOO...OOOOOOO|           .
 
- *  |XXXXXXXX|XXXXXXXX| +=  |OOOOOOOOOOOOOOO| 
- *  |XXXXXXXX|XXXXXXXX|     |OOOOOOOOOOOOOOO|  
-
- *  |XXXXXXXX|XXXXXXXX|     |OOOOOOOOOOOOOOO|  |UUUUUUUU|UUUUUUUU|
- *  |XXXXXXXX|XXXXXXXX|     |OOOOOOOOOOOOOOO|  |UUUUUUUU|UUUUUUUU|
- *  6x2=12 regs             2 reg for a        |UUUUUUUU|UUUUUUUU|
- *                          2 reg for b        |UUUUUUUU|UUUUUUUU|
- *  12+2+2 = 16 regs                           |UUUUUUUU|UUUUUUUU|
- *  "tiling" for "regs"                        |UUUUUUUU|UUUUUUUU|
- *                                             |UUUUUUUU|UUUUUUUU|
- *                                             |UUUUUUUU|UUUUUUUU|
- *                                             |UUUUUUUU|UUUUUUUU|
- *                                             |UUUUUUUU|UUUUUUUU|
- *                                             |UUUUUUUU|UUUUUUUU|
- *                                             |UUUUUUUU|UUUUUUUU|
- *                                             |UUUUUUUU|UUUUUUUU|
- *                                             |UUUUUUUU|UUUUUUUU|
- *                                             |UUUUUUUU|UUUUUUUU|
+ *  |XXXXXXXX|XXXXXXXX|     |OOOOOOOO...OOOOOOO|  |UUUUUUUU|UUUUUUUU|
+ *  |XXXXXXXX|XXXXXXXX|     |OOOOOOOO...OOOOOOO|  |UUUUUUUU|UUUUUUUU|
+ *  6x2=12 regs             2 reg for a           |UUUUUUUU|UUUUUUUU|
+ *                          2 reg for b           |UUUUUUUU|UUUUUUUU|
+ *  12+2+2 = 16 regs                              |UUUUUUUU|UUUUUUUU|
+ *  "tiling" for "regs"                           |UUUUUUUU|UUUUUUUU|
+ *                                                |UUUUUUUU|UUUUUUUU|
+ *                                                |UUUUUUUU|UUUUUUUU|
+ *                                                |UUUUUUUU|UUUUUUUU|
+ *                                                |UUUUUUUU|UUUUUUUU|
+ *                                                |UUUUUUUU|UUUUUUUU|
+ *                                                |UUUUUUUU|UUUUUUUU|
+ *                                                |UUUUUUUU|UUUUUUUU|
+ *                                                |UUUUUUUU|UUUUUUUU|
+ *                                                |UUUUUUUU|UUUUUUUU|
  *
  * */
 
